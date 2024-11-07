@@ -36,22 +36,7 @@ export default function Index() {
         <View style={styles.gridItem}><FontAwesome name="laptop" size={30} color="#363453" /><Text style={styles.gridText}>Blog</Text></View>
         <View style={styles.gridItem}><FontAwesome name="book" size={30} color="#363453" /><Text style={styles.gridText}>Leitura anual</Text></View>
       </View>
-      <View style={styles.infos}>
-        <View>
-          <Text style={styles.textoProximoCulto}>Próximo culto: </Text>
-          <Text style={{ fontSize: 40, textAlign: 'center' }}>29</Text>
-          <Text style={{ fontSize: 15, textAlign: 'center' }}> setembro</Text>
-        </View>
-        <View style={{ borderLeftWidth: 1, padding: 15 }}>
-          <Text style={styles.textoProximoCulto}>Próxima atividade: </Text>
-          <Text style={{ fontSize: 40, textAlign: 'center' }}>07</Text>
-          <Text style={{ fontSize: 15, textAlign: 'center' }}> outubro</Text>
-        </View>
-      </View>
-      <View style={styles.viewVersiculo}>
-        <Text style={{ fontStyle: "italic" }}>"Porque estou certo de que, nem a morte, nem a vida, nem os anjos, nem os principados, nem as potestades, nem o presente, nem o porvir, nem a altura, nem a profundidade, nem alguma outra criatura nos poderá separar do amor de Deus, que está em Cristo Jesus nosso Senhor."</Text>
-        <Text style={styles.endereco}>Romanos 8:38-39</Text>
-      </View>
+      
     </View>
   );
 }

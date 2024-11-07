@@ -18,7 +18,7 @@ export default function LayoutTab(){
                 
             }}/>
             <Tabs.Screen name="atividades" options={{title:"", tabBarIcon: ({color})=> <FontAwesome size={28} name="calendar" color={color}></FontAwesome>}} />
-            <Tabs.Screen name="devocionais" options={{title:"", tabBarIcon: ({color})=> <FontAwesome size={28} name="book" color={color}></FontAwesome>}} />
+            {/* <Tabs.Screen name="devocionais" options={{title:"", tabBarIcon: ({color})=> <FontAwesome size={28} name="book" color={color}></FontAwesome>}} /> */}
             <Tabs.Screen name="logout" options={{title:"", tabBarIcon: ({color})=> <FontAwesome size={28} name="arrow-circle-o-right" color={color}></FontAwesome>}} />
 
         </Tabs>

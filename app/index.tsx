@@ -1,8 +1,9 @@
-import { Text, TextInput, View, TouchableOpacity, StyleSheet, Alert } from "react-native";
+import React, { useState } from 'react';
+import { Text, TextInput, View, TouchableOpacity, StyleSheet } from "react-native";
 import { router } from "expo-router";
-import { useState } from "react";
 import axios from "axios";
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Swal from "sweetalert2"; // Importando Swal para exibir alertas
 import BackgroundWrapper from '../app/components/background';
 
 export default function Index() {
@@ -24,14 +25,30 @@ export default function Index() {
         await AsyncStorage.setItem('token', token);
         await AsyncStorage.setItem('idUsuario', token);
 
-        // Redireciona para o dashboard
-        router.push('/dashboard');
+        // Exibe o Swal de sucesso e redireciona para o dashboard
+        Swal.fire({
+          title: 'Login realizado com sucesso!',
+          text: 'Você será redirecionado para o dashboard.',
+          icon: 'success',
+          confirmButtonText: 'Ok',
+        }).then(() => {
+          router.push('/dashboard');
+        });
       } else {
-        Alert.alert("Erro", "Credenciais inválidas");
+        Swal.fire({
+          title: 'Erro',
+          text: 'Credenciais inválidas',
+          icon: 'error',
+          confirmButtonText: 'Ok',
+        });
       }
     } catch (error) {
-      console.error("Erro no login:", error);
-      Alert.alert("Erro", "Erro ao tentar realizar o login.");
+      Swal.fire({
+        title: 'Erro no login',
+        text: error.response?.data?.message || 'Erro ao tentar realizar o login.',
+        icon: 'error',
+        confirmButtonText: 'Ok',
+      });
     }
   };
 
@@ -41,8 +58,8 @@ export default function Index() {
 
   return (
     <BackgroundWrapper>
-      <View style={{width: '90%'}}>
-        <View style={{margin: "auto", width: '80%'}}>
+      <View style={{ width: '90%' }}>
+        <View style={{ margin: "auto", width: '80%' }}>
           <Text style={style.label}>Email</Text>
           <TextInput
             style={style.campo}
@@ -59,7 +76,7 @@ export default function Index() {
           />
         </View>
 
-        <View style={{display: 'flex', flexDirection: "row", justifyContent: "flex-end", width: "90%"}}>
+        <View style={{ display: 'flex', flexDirection: "row", justifyContent: "flex-end", width: "90%" }}>
           <TouchableOpacity style={style.button} onPress={handleLogin}>
             <Text style={style.buttonText}>Login</Text>
           </TouchableOpacity>
@@ -99,7 +116,7 @@ const style = StyleSheet.create({
     alignItems: 'center',
     color: "#fff",
     textAlign: "center",
-    marginTop: 50,
+    marginTop: 20,
   },
   label: {
     fontSize: 16,

@@ -71,10 +71,13 @@ export default function Locais() {
       />
       
       {/* Botão para voltar para a listagem de eventos */}
-      <Button
-        title="Voltar para Atividades"
-        onPress={() => router.push('http://localhost:8081/atividades')}
-      />
+      <TouchableOpacity
+  style={styles.voltarAtividades}
+  onPress={() => router.push('http://localhost:8081/atividades')}
+>
+  <Text style={styles.buttonText}>VOLTAR PARA ATIVIDADES</Text>
+</TouchableOpacity>
+
       
       <FlatList
         data={locais}
@@ -99,5 +102,17 @@ const styles = StyleSheet.create({
   status: {
     fontSize: 14,
     color: '#666',
+  },
+  voltarAtividades: {
+    marginTop: '5%',
+    backgroundColor: '#007bff', // Cor de fundo do botão
+    padding: 10,
+    borderRadius: 5,
+    alignItems: 'center',
+    color: '#FFF'
+  },
+  buttonText: {
+    color: '#fff',
+    fontWeight: 'bold',
   },
 });

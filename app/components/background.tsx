@@ -8,8 +8,9 @@ interface BackgroundWrapperProps {
 const BackgroundWrapper: React.FC<BackgroundWrapperProps> = ({ children }) => {
   return (
     <ImageBackground
-    source={require('../../assets/images/wallpaper.jpg')}
+      source={require('../../assets/images/wallpaper.jpg')}
       style={styles.background}
+      resizeMode="cover" // Isso garante que a imagem cubra a tela sem ultrapassar
     >
       <View style={styles.content}>{children}</View>
     </ImageBackground>
@@ -19,12 +20,13 @@ const BackgroundWrapper: React.FC<BackgroundWrapperProps> = ({ children }) => {
 const styles = StyleSheet.create({
   background: {
     flex: 1,
-    resizeMode: 'cover', // Ajuste a imagem para cobrir a tela inteira
+    width: '100%',
+    height: '100%', // Garantir que a imagem cubra a altura total da tela
   },
   content: {
     flex: 1,
-    justifyContent: 'center', // Altere conforme necessário
-    alignItems: 'center',     // Altere conforme necessário
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 
